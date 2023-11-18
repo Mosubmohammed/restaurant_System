@@ -1,12 +1,7 @@
 menuList={
-    'ID':'',
-    'name':'',
-    'description':'',
-    'price':''
+    
     }
-menuListValues={
 
-}
 print('welcome to our restaurant')
 while True:
     print('_'*20)
@@ -23,11 +18,8 @@ while True:
         name=input('Enter the item name')
         desc=input('Enter the item description')
         price=input('Enter the item price')
-        menuListValues['ID']=id
-        menuListValues['name']=name
-        menuListValues['description']=desc
-        menuListValues['price']=price
-        menuList.append(menuListValues)
+        
+        
         print(menuList)
     elif Choice == '2':
         price('2')
