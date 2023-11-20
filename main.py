@@ -1,11 +1,9 @@
 import random
-
-
 menuList={}
-
 print('welcome to our restaurant')
 print('--'*20)
-while True:
+isWhile=True
+while isWhile:
     print('_'*20)
     print('1-add a item')
     print('2-search for item')
@@ -22,10 +20,8 @@ while True:
     for _ in range(2):
         random_char = random.choice(Char)
         result += random_char
-
         random_lower_char = random.choice(lowerChar)
         result += random_lower_char
-
         random_number = random.choice(number1)
         result += random_number
       
@@ -43,19 +39,7 @@ while True:
             break
           
     elif Choice == '2':
-        # isExist=False
-        # serarch=input('enter the ID of the item :')
-        # try:
-        #     if serarch == menuList[serarch]:
-        #         print('here is the item')
-        #         print('#id:',serarch)
-        #     print('  -','name:',menuList[serarch]['name'])
-        #     print('  -','description:',menuList[serarch]['description'])
-        #     print('  -','price:',menuList[serarch]['price'])
-            
-        # except Exception as e:
-        #         print('sorry the item is not in the menu')  
-        #         pass  
+       
             search = input('Enter the ID of the item: ')
             try:
                 if search in menuList: 
@@ -75,7 +59,8 @@ while True:
             menuList.pop(Remove1)
             print('you deleted the item')
          else:
-             print('there is something wrong try again')   
+             print('there is something wrong try again') 
+
     elif Choice =='4':
         print('--'*20)
         print('all items')
@@ -98,9 +83,9 @@ while True:
                  'item':userinput3
             }
             orderList.append(orderDic)
-            # print(orderList)
         else:
             print('the item is not in the menu')     
+
     elif Choice == '6':
             print('--'*20)
             for i in orderList:
@@ -108,10 +93,12 @@ while True:
                print('  -','name:',orderList[i]['name'])
                print('  -','description:',orderList[i]['phone'])
                print('  -','price:',orderList[i]['item'])
-                # for key in i:
-                #     print("   ",key,":",i[key])
-                    
         
     elif Choice == '7':
-        print('byee thanks for visiting our restraint')    
+        
+        print('byee thanks for visiting our restraint') 
+        isWhile=False   
+
+    else:
+        print('wrong choice')    
                              
