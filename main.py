@@ -43,23 +43,47 @@ while True:
             break
           
     elif Choice == '2':
-        serarch=input('enter the ID of the item :')
-        try:
-            if serarch in menuList.keys():
-                print('dededede') 
-        except KeyError:
-                print('sorry the item is not in the menu')       
+        # isExist=False
+        # serarch=input('enter the ID of the item :')
+        # try:
+        #     if serarch == menuList[serarch]:
+        #         print('here is the item')
+        #         print('#id:',serarch)
+        #     print('  -','name:',menuList[serarch]['name'])
+        #     print('  -','description:',menuList[serarch]['description'])
+        #     print('  -','price:',menuList[serarch]['price'])
+            
+        # except Exception as e:
+        #         print('sorry the item is not in the menu')  
+        #         pass  
+            search = input('Enter the ID of the item: ')
+            try:
+                if search in menuList: 
+                    print('Here is the item:')
+                    print('#id:', search)
+                    print('  - Name:', menuList[search]['name'])
+                    print('  - Description:', menuList[search]['description'])
+                    print('  - Price:', menuList[search]['price'])
+                else:
+                    print('Sorry, the item is not in the menu')
+            except KeyError:
+                print('sorry the item is not in the menu')
+
     elif Choice == '3':
          Remove1=input('Enter the Id of the item to delete it') 
          if Remove1 in menuList.keys():
-            del menuList[Remove1]
+            menuList.pop(Remove1)
+            print('you deleted the item')
          else:
              print('there is something wrong try again')   
     elif Choice =='4':
         print('--'*20)
         print('all items')
         for i in menuList:
-            print(' ',i,':',menuList[i])
+            print('#id:',i)
+            print('  -','name:',menuList[i]['name'])
+            print('  -','description:',menuList[i]['description'])
+            print('  -','price:',menuList[i]['price'])
     elif Choice == '5':
         print('--'*20)
         orderList=[]
@@ -74,17 +98,20 @@ while True:
                  'item':userinput3
             }
             orderList.append(orderDic)
-            print(orderList)
+            # print(orderList)
         else:
             print('the item is not in the menu')     
     elif Choice == '6':
-         print('--'*20)
-         counter2=1
-         for i in orderList:
-              print('order',':',counter2)
-         for key in i:
-                print("   ",key,":",i[key])
-                counter2+=1    
+            print('--'*20)
+            for i in orderList:
+               print('#id:',key)
+               print('  -','name:',orderList[i]['name'])
+               print('  -','description:',orderList[i]['phone'])
+               print('  -','price:',orderList[i]['item'])
+                # for key in i:
+                #     print("   ",key,":",i[key])
+                    
+        
     elif Choice == '7':
         print('byee thanks for visiting our restraint')    
                              
