@@ -60,7 +60,7 @@ while isWhile:
                     print('  - Price:', menuList[search]['price'])
                     break
                 else:
-                    print('Sorry, the item is not in the menu.')
+                    print('Sorry, the item is not in the menu try again')
             except Exception as e:
                 print('An error occurred:', e)
 
