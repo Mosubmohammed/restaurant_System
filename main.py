@@ -49,18 +49,20 @@ while isWhile:
             break
           
     elif Choice == '2':
+        while True:
             search = input('Enter the ID of the item: ')
-            while True:
-                try:
-                 if search in menuList: 
-                        print('Here is the item:')
-                        print('#id:', search)
-                        print('  - Name:', menuList[search]['name'])
-                        print('  - Description:', menuList[search]['description'])
-                        print('  - Price:', menuList[search]['price'])
-                        break
-                except Exception as e:
-                    print('sorry the item is not in the menu')
+            try:
+                if search in menuList:
+                    print('Here is the item:')
+                    print('#id:', search)
+                    print('  - Name:', menuList[search]['name'])
+                    print('  - Description:', menuList[search]['description'])
+                    print('  - Price:', menuList[search]['price'])
+                    break
+                else:
+                    print('Sorry, the item is not in the menu.')
+            except Exception as e:
+                print('An error occurred:', e)
 
     elif Choice == '3':
          ishere=True
