@@ -44,6 +44,7 @@ while isWhile:
             
             menuDic={'name':name, 'description':desc , 'price':price}
             menuList[result]=menuDic
+            print('you just added a new item')
             print(menuList)
             break
           
@@ -62,21 +63,28 @@ while isWhile:
                     print('sorry the item is not in the menu')
 
     elif Choice == '3':
-         Remove1=input('Enter the Id of the item to delete it') 
-         if Remove1 in menuList.keys():
-            menuList.pop(Remove1)
-            print('successfully deleted')
-         else:
-             print('there is something wrong try again') 
+         ishere=True
+         while ishere:
+            Remove1=input('Enter the Id of the item you want delete :') 
+            if Remove1 in menuList.keys():
+                menuList.pop(Remove1)
+                print('successfully deleted')
+                ishere=False
+            else:
+                print('there is something wrong try again') 
 
     elif Choice =='4':
-        print('--'*20)
-        print('all items')
-        for i in menuList:
-            print('#id:',i)
-            print('  -','name:',menuList[i]['name'])
-            print('  -','description:',menuList[i]['description'])
-            print('  -','price:',menuList[i]['price'])
+        if menuList!={}:
+            print('--'*20)
+            print('all items:')
+            for i in menuList:
+                print('#id:',i)
+                print('  -','name:',menuList[i]['name'])
+                print('  -','description:',menuList[i]['description'])
+                print('  -','price:',menuList[i]['price'])
+        else:
+            print('--'*7)
+            print('there is no items')        
     elif Choice == '5':
         print('--'*20)
         
@@ -99,28 +107,36 @@ while isWhile:
                 break
             else:
                 print('the item is not in the menu')
-                userinput3=input('please enter the ID of the item again')
+                userinput3=input('please enter the ID of the item again:')
         orderList.append(orderDic)
         print('thank you for adding a order')
              
 
     elif Choice == '6':
-            print('--'*20)
-            for i in orderList:
-               print('----------')
-               print('  -','name:',i['name'])
-               print('  -','phone:',i['phone'])
-               print('  -','item ID:',i['item'])
-               print('---- Item details:')
-               print('    - Name:', menuDic['name'])
-               print('    - Description:', menuDic['description'])
-               print('    - Price:', menuDic['price'])
-                        
+            if orderList!=[]:
+                print('--'*20)
+                print('the orders :')
+                for i in orderList:
+                    print('*******')
+                    print('  -','name:',i['name'])
+                    print('  -','phone:',i['phone'])
+                    print('  -','item ID:',i['item'])
+                    print('---- Item details:')
+                    print('    - Name:', menuDic['name'])
+                    print('    - Description:', menuDic['description'])
+                    print('    - Price:', menuDic['price'])  
+            else:
+                print('--'*7)
+                print('there is no orders')         
     elif Choice == '7':
-        
-        print('byee thanks for visiting our restraint') 
-        isWhile=False   
+        Exit=input('are you sure u wanna exit the system , enter YES or NO :')
+        if Exit=='yes':
+            print('byee thanks for visiting our restraint') 
+            isWhile=False 
+        else:
+            continue      
 
     else:
+        print('--'*7)
         print('wrong choice')    
                              
