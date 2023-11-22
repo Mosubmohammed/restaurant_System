@@ -19,7 +19,7 @@ while isWhile:
     lowerChar = "abcdefghijklmnopqrstuvwxyz"
     number1 = "0123456789"
     result = ""
-    for _ in range(2):
+    for i in range(2):
         random_char = random.choice(Char)
         result += random_char
         random_lower_char = random.choice(lowerChar)
@@ -45,7 +45,6 @@ while isWhile:
             menuDic={'name':name, 'description':desc , 'price':price}
             menuList[result]=menuDic
             print('you just added a new item')
-            print(menuList)
             break
           
     elif Choice == '2':
